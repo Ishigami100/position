@@ -1,18 +1,18 @@
 class PositionsController < ApplicationController
     skip_before_action :verify_authenticity_token
-    def index:
+    def index
         positions = Position.all
         p  positions
-        return json:positions
+        render  json:positions
     end
 
-    def show:
-        position = Position.find()
+    def show
+        position = Position.find(params[:id])
         p  positions
-        return json: position
+        render  json: position
     end
 
-    def create:
+    def create
         Position.create(comment:params["comment"],latitude:params["latitude"],longitude:params["longitude"])
     end
 end
